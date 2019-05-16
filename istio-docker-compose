@@ -1,0 +1,66 @@
+Install Istio and Its Dependencies for Docker, Then Deploy the bookinfo Application
+
+1. Add current user to docker group
+
+$ sudo usermod -aG docker cloud_user
+
+Note : you might need to exit and relogin 
+
+2. Install docker-compose and make it executable:
+
+$ sudo curl -L "https://github.com/docker/compose/releases/download/1.23.2/docker-compose-Linux-x86_64" -o /usr/local/bin/docker-compose  
+$ sudo chmod +x /usr/local/bin/docker-compose
+
+Note - test docker-compose
+
+3. Download Istio and unpack it:
+
+$ wget https://github.com/istio/istio/releases/download/1.0.6/istio-1.0.6-linux.tar.gz
+$ tar -xvf istio-1.0.6-linux.tar.gz
+
+4. Pre-configure kubectl for pilot:
+
+$ kubectl config set-context istio --cluster=istio
+$ kubectl config set-cluster istio --server=http://localhost:8080
+$ kubectl config use-context istio
+
+5. Create a DOCKER_GATEWAY environment variable:
+
+$ export DOCKER_GATEWAY=172.28.0.1:
+
+6. Bring up Istio's control plane:
+
+$ docker-compose -f ./istio-1.0.6/install/consul/istio.yaml up -d
+
+note:Remember that this may need to be repeated to ensure the pilot container starts.
+
+7. repeat command at step 6 to start pilot container ( pilot container has dependency on spi server) 
+
+8 . Change bookinfo.yaml, and set port 30080 instead of port 9081:
+
+$ sed -i 's/9081/30080/' ./istio-1.0.6/samples/bookinfo/platform/consul/bookinfo.yaml
+
+9. Bring up the application:
+
+$ docker-compose -f ./istio-1.0.6/samples/bookinfo/platform/consul/bookinfo.yaml up -d
+
+10. Bring up the sidecars:
+
+$ docker-compose -f ./istio-1.0.6/samples/bookinfo/platform/consul/bookinfo.sidecars.yaml up -d
+
+Note- point a browser at the public IP address of the server, on the correct port: http://<PUBLICSERVER_IP>:30080/productpage_.
+
+11. Route Application Traffic to reviews Version 1 and Confirm that Version 1 (with No Stars) is Loading
+
+Route traffic to version 1
+
+kubectl apply -f ./istio-1.0.6/samples/bookinfo/platform/consul/destination-rule-all.yaml
+kubectl apply -f ./istio-1.0.6/samples/bookinfo/platform/consul/virtual-service-all-v1.yaml
+
+12. Route the Traffic to Version 3 of the reviews Service (with Red Stars)
+
+
+We need to modify the routing service subsets to read the labels for Version 3. Edit istio-1.0.6/samples/bookinfo/platform/consul/virtual-service-all-v1.yaml (using whatever text editor you like) and change the subset to V3 in the reviews section. Then apply the changes with:
+
+
+$ kubectl apply -f ./istio-1.0.6/samples/bookinfo/platform/consul/virtual-service-all-v1.yaml
