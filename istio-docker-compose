@@ -64,3 +64,4 @@ We need to modify the routing service subsets to read the labels for Version 3. 
 
 
 $ kubectl apply -f ./istio-1.0.6/samples/bookinfo/platform/consul/virtual-service-all-v1.yaml
+
