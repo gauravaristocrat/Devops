@@ -1,0 +1,12 @@
+*Ansible Task* 
+#############
+Task 1
+Part 1. Write Ansible playbook to automate Jenkins deployment
+Part 2. Write Ansible role to install Docker & setup Kubernetes cluster 
+Automate the pipeline creation in Jenkins to create docker container & deploy on Kubernetes cluster
+Task 2
+Write ansible playbook for below tasks:
+1. Install apache server and deploy sample html application
+2. Create /var/www/example.com
+3. deploy a sample application to the above directory
+4. create a virtual host for deploy application and set it as default virtualhost
