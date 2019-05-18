@@ -10,3 +10,22 @@ Write ansible playbook for below tasks:
 2. Create /var/www/example.com
 3. deploy a sample application to the above directory
 4. create a virtual host for deploy application and set it as default virtualhost
+
+
+Ansible real time playbooks end to end deployments
+-------------—----------------------
+
+SUBSCRIBE FOR MORE REALTIME VIDEOS ON DEVOPS CULTURE TOOLS
+
+1. write a playbook to install git ?
+2. write a playbook to install maven ?
+3. what is ansible roles ?
+4. what is ansible-galaxy ?
+5. what is ansible tags ? advantages ? how to use?
+6. How to create a role using anisble galaxy ?
+7. write a playbook to install apache tomcat ?
+deploy sample war file trough apache tomcat
+8. deploy end to end deployment trough ansible.
+9. Working with ansible tags
+
+https://youtu.be/MhquwWYbkMg
