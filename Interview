@@ -342,3 +342,27 @@ Architecture Diagram for a PHP/JAVA/Python based application to be hosted on AWS
 * How 2 containers inside a pod communicate with each other ?
 * What is Flannel & why we use it ?
 * Difference between Flannel & Calico ?
+Docker Experts,
+—-------
+The topics that I have come across with DOCKER are:
+ 
+1) various installations
+2) architecture
+3) images, Dockerfile
+4) containers
+5) registry
+6) docker-compose, YAML file
+7) docker-machine
+8) Docker Network 
+9) Volumes
+10) Swarm mode
+11) Services
+12) Secrets
+13) Stacks
+14) UCP
+15) DTR
+16) RBAC
+
+Any topic that you think is missing from this list?
+
+—-------
