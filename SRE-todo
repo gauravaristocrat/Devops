@@ -26,3 +26,22 @@ Linux academy have good courses for devops / sre
 https://www.coursera.org/learn/site-reliability-engineering-slos
 
 https://kubedex.com/learn/
+
+
+Blameless postmortems --> https://codeascraft.com/2012/05/22/blameless-postmortems/
+summary - 
+what do we do to enable a “Just Culture” at Etsy?
+
+We encourage learning by having these blameless Post-Mortems on outages and accidents.
+The goal is to understand how an accident could have happened, in order to better equip ourselves from it happening in the future
+We seek out Second Stories, gather details from multiple perspectives on failures, and we don’t punish people for making mistakes.
+Instead of punishing engineers, we instead give them the requisite authority to improve safety by allowing them to give detailed accounts of their contributions to failures.
+We enable and encourage people who do make mistakes to be the experts on educating the rest of the organization how not to make them in the future.
+We accept that there is always a discretionary space where humans can decide to make actions or not, and that the judgement of those decisions lie in hindsight.
+We accept that the Hindsight Bias will continue to cloud our assessment of past events, and work hard to eliminate it.
+We accept that the Fundamental Attribution Error is also difficult to escape, so we focus on the environment and circumstances people are working in when investigating accidents.
+We strive to make sure that the blunt end of the organization understands how work is actually getting done (as opposed to how they imagine it’s getting done, via Gantt charts and procedures) on the sharp end.
+The sharp end is relied upon to inform the organization where the line is between appropriate and inappropriate behavior. This isn’t something that the blunt end can come up with on its own.
+
+
+
